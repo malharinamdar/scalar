@@ -845,7 +845,7 @@ def list_tasks():
 
 
 @app.post("/reset")
-def reset(task: str = Query(..., description="Task name")) -> ResetResponse:
+def reset(task: str = Query("task1-single-post", description="Task name")) -> ResetResponse:
     if task not in TASK_NAMES:
         raise HTTPException(400, f"Unknown task '{task}'. Valid: {TASK_NAMES}")
 
